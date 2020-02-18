@@ -1,12 +1,13 @@
 Options +FollowSymLinks -Indexes
 
-RewriteEngine On                                                                                                                                                                                                                              
-                                                                                                                                                                                                                                              
-RewriteCond %{HTTP_HOST} ^(www.)?eurovikna2/$                                                                                                                                                                                    
-RewriteCond %{REQUEST_URI} !^/public/                                                                                                                                                                                                             
-RewriteCond %{REQUEST_FILENAME} !-f                                                                                                                                                                                                           
-RewriteCond %{REQUEST_FILENAME} !-d                                                                                                                                                                                                           
-RewriteRule ^(.*)$ /public/$1                                                                                                                                                                                                                     
-                                                                                                                                                                                                                                              
-RewriteCond %{HTTP_HOST} ^(www.)?eurovikna2$                                                                                                                                                                                    
-RewriteRule ^(/)?$ public/index.html [L]
+RewriteEngine On
+DirectorySlash Off
+
+RewriteCond %{HTTP_HOST} ^(www.)?eurovikna2/$
+RewriteCond %{HTTP_HOST} ^(www.)?eurovikna2$
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1
+
+RewriteRule ^(/)?$ public/index.php [L]

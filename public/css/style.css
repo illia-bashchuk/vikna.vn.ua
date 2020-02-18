@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+
+body {
+  font-family: "PT Sans", sans-serif;
+  background-image: url("../img/pattern_11.png");
+}
+
+h1 {
+  font-size: unset;
+}
+/*
+***
+* СТИЛЬ КНОПОК ВИКЛИКУ ФОРМИ ЗАЯВКИ
+***
+* btn-1 кнопка в секції header та секції пропозицій вікон
+* btn-2 кнопка в секції "Ліцензійні протизламні вікна..."
+* btn-3 кнопка в секції "Монтаж згідно ДСТУ"
+***
+*/
+
+.btn-1 {
+  height: 2em;
+  padding: 0 10px;
+  border: solid 2px;
+  color: rgb(233, 10, 10);
+  width: 160px;
+  max-width: 250px;
+  min-width: 130px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn-1:hover {
+  border-color: rgb(233, 10, 10);
+  background-color: rgb(233, 10, 10);
+  color: rgb(252, 252, 252);
+  font-weight: bold;
+}
+
+.btn-2 {
+  border: 3px solid;
+  color: #fff;
+  font-size: 7vmin;  
+  margin-top: 10vh;
+  margin-bottom: 2vh;
+  width: 38vw;
+}
+
+.btn-2:hover {  
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.btn-3 {  
+  padding: 0 10px;
+  border: solid 2px;
+  color: rgb(233, 10, 10);
+  width: 55vmin;
+  text-align: center;  
+  font-size: 4vmin;
+}
+
+.btn-3:hover {
+  border-color: rgb(233, 10, 10);
+  background-color: rgb(233, 10, 10);
+  color: rgb(252, 252, 252);
+  font-weight: bold;
+}
+
+/*
+***
+* СТИЛЬ КНОПОК ВІДПРАВКИ ФОРМИ ЗАЯВКИ
+***
+* popup-form-btn кнопка відпраки основної форми
+* footer-btn кнопка відправки нижньої форми
+***
+*/
+
+.popup-form-btn input[type="submit"] {
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 100%;
+  border: solid 2px;
+  color: #fff;
+  background: rgb(20, 19, 16);
+  background-color: rgb(214, 43, 43);
+  font-size: 24px;
+  background-repeat: repeat-x;
+  border-radius: 5px;
+}
+
+.popup-form-btn input[type="submit"]:hover {
+  border: solid 2px rgb(214, 43, 43);
+}
+
+.footer-btn input[type="submit"] {
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  width: 100%;  
+  border: solid 2px;
+  margin-bottom: 15px;
+  color: #fff;
+  background-color: #fd6f00;
+  padding: 15px 10px;
+  font-size: 24px;  
+  border-radius: 5px;
+}
+
+/*
+***
+* СТИЛІ ФОРМИ ЗАЯВКИ
+***
+* 
+* 
+***
+*/
+
+.popup_form {
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+.form_wrapper {
+  background: #FEFDFB;
+  border-radius: 5px;
+}
+
+.popup_form_inner {
+  border-radius: 5px;
+  background: #fff;
+}
+
+.popup_thanks {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  color: #333;
+}
+
+.popup_thanks_inner {
+  height: auto;
+  background: #fff;
+  border-radius: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*
+***
+* СТИЛІ ШРИФТІВ САЙТУ
+***
+* 
+* 
+***
+*/
+
+.phone-1 {
+  font-size: 24px;
+}
+
+.main-screen-title {
+  font-size: 2em;
+  margin-top: 9vh;
+  line-height: 100%;
+  text-shadow: 0 1px 1px #000;
+  color: #fff;
+}
+
+@media (min-width: 500px) {
+  .main-screen-title {
+    font-size: calc(1.5em + 3vw);
+  }
+}
+
+.sub-header {
+  font-size: 1.1em;
+}
+
+@media (min-width: 500px) {
+  .sub-header {
+    font-size: calc(1em + 2vw);
+  }
+}
+
+@media (min-width: 1500px) {
+  .sub-header {
+    font-size: calc(1.1em + 1.8vw);
+  }
+}
+
+.sub-sub-header {
+  font-size: 1em;
+}
+
+@media (min-width: 500px) {
+  .sub-sub-header {
+    font-size: calc(0.4em + 2vw);
+  }
+}
+
+.sub-sub-sub-header {
+  font-size: 0.8em;
+}
+
+@media (min-width: 500px) {
+  .sub-sub-sub-header {
+    font-size: calc(0.5em + 1vw);
+  }
+}
+
+@media (min-width: 1500px) {
+  .sub-sub-sub-header {
+    font-size: calc(1.5em);
+  }
+}
+
+.sub-sub-sub-sub-header {
+  font-size: 0.7em;
+}
+
+@media (min-width: 500px) {
+  .sub-sub-sub-sub-header {
+    font-size: calc(0.1em + 1vw);
+  }
+}
+
+.services-title {
+  font-size: 18px;
+}
+
+@media (min-width: 500px) {
+  .services-title {
+    font-size: calc(0.5em + 0.8vw);
+  }
+}
+
+.list-of-properties {
+  font-size: 0.8em;
+}
+
+@media (min-width: 500px) {
+  .list-of-properties {
+    font-size: calc(0.3em + 1vw);
+  }
+}
+
+@media (min-width: 1500px) {
+  .list-of-properties {
+    font-size: calc(0.2em + 0.8vw);
+  }
+}
+
+.brief-description {
+  font-size: 1.2em;
+}
+
+@media (min-width: 500px) {
+  .brief-description {
+    font-size: calc(0.5em + 1vw);
+  }
+}
+
+.rc1 {
+  color: #d62b2b;
+  font-weight: bold;
+}
+
+.white-font {
+  color: whitesmoke;
+}
+
+/*
+***
+* СТИЛІ ЕФЕКТІВ, ФІЛЬТРІВ ТА БЕКГРАУНДІВ
+***
+* 
+* 
+***
+*/
+
+.main-screen-background {
+  background-image: url(../img/1920x0/main-screen-background-sm.jpg);
+  background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  position: relative;
+
+}
+
+@media (min-width: 500px) {
+  .main-screen-background {
+    background-image: url(../img/1920x0/b8d06d128b4e8ada1c70aeea160cb79c.jpg);
+    background-size: cover;
+  }
+}
+
+.shadow {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: solid 0.8vw #fff;
+  box-shadow: 0px 0px 10px -6px #000;
+}
+
+.main-screen-background .dark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+}
+
+.main-screen-background .noise {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../img/pattern_7.png);
+  opacity: 0.5;
+
+}
+
+.our-advantages {
+  background: #3D3D3D;
+  background-image: url(../img/pattern_11.png);
+}
+
+.footer-screen-background {
+  background-color: #000;
+  background-image: url(../img/1920x0/45b576782305d1bef03039e8bbdfe585.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.footer-screen-background .dark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.5;
+}
+
+.footer-screen-background .noise {
+  position: absolute;
+  background-image: url(../img/pattern_2.png) !important;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ЕФЕКТ ОВЕРЛЕЮ ДЛЯ ФОТОГАЛЕРЕЇ */
+
+.image_box {
+  position: relative;
+  display: inline-flex;
+}
+
+.image_box:hover .overlay_image_box {
+  opacity: 1;
+}
+
+.overlay_image_box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.overlay_image_title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+/*
+***
+* СТИЛІ ВІДОБРАЖЕННЯ ФОТО В ПОВНОЕКРАНОМУ РЕЖИМІ
+***
+* 
+* 
+***
+*/
+
+#img_zoomer_bg {
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
