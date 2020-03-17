@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap&subset=cyrillic-ext');
 
 body {
   font-family: "PT Sans", sans-serif;
@@ -40,22 +40,22 @@ h1 {
 .btn-2 {
   border: 3px solid;
   color: #fff;
-  font-size: 7vmin;  
+  font-size: 7vmin;
   margin-top: 10vh;
   margin-bottom: 2vh;
   width: 38vw;
 }
 
-.btn-2:hover {  
+.btn-2:hover {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.btn-3 {  
+.btn-3 {
   padding: 0 10px;
   border: solid 2px;
   color: rgb(233, 10, 10);
   width: 55vmin;
-  text-align: center;  
+  text-align: center;
   font-size: 4vmin;
 }
 
@@ -99,22 +99,72 @@ h1 {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  width: 100%;  
+  width: 100%;
   border: solid 2px;
   margin-bottom: 15px;
   color: #fff;
   background-color: #fd6f00;
   padding: 15px 10px;
-  font-size: 24px;  
+  font-size: 24px;
   border-radius: 5px;
+}
+
+/*
+***
+* СТИЛЬ КНОПОК НАВІГАЦІЇ
+***
+*
+*
+***
+*/
+
+.my-nav-btn {
+    /* display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; */
+  width: 170px;
+  /* border: solid 2px; */
+  /* margin-bottom: 15px; */
+  color: #fff;
+  background-color: #fd6f00;
+  /* padding: 15px 10px; */
+  font-size: 26px;
+  font-weight: 700 !important;
+  border-radius: 10px;
+  box-shadow: 0.5px 0.5px 0px 0.5px #000;
+
+}
+
+.my-locality-btn {
+    /* display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box; */
+  width: auto;
+  /* border: solid 2px; */
+  /* margin-bottom: 15px; */
+  color: #fff;
+  background-color: #fd6f00;
+  /* padding: 15px 10px; */
+  font-size: 26px;
+  font-weight: 700 !important;
+  border-radius: 10px;
+  /* box-shadow: 0.5px 0.5px 0px 0.5px #000; */
+
+}
+
+.my-active {
+    color: rgb(0, 0, 0);
+    text-shadow: 0px 0px 0px rgb(0, 0, 0) !important;
 }
 
 /*
 ***
 * СТИЛІ ФОРМИ ЗАЯВКИ
 ***
-* 
-* 
+*
+*
 ***
 */
 
@@ -164,8 +214,8 @@ h1 {
 ***
 * СТИЛІ ШРИФТІВ САЙТУ
 ***
-* 
-* 
+*
+*
 ***
 */
 
@@ -284,14 +334,24 @@ h1 {
   color: whitesmoke;
 }
 
+.blue-font {
+    color: rgb(51, 102, 204);
+}
+
+.my-text-shadow {
+    text-shadow: 2px 2px 10px #000;
+}
 /*
 ***
 * СТИЛІ ЕФЕКТІВ, ФІЛЬТРІВ ТА БЕКГРАУНДІВ
 ***
-* 
-* 
+*
+*
 ***
 */
+.my-navbar {
+    background-color: rgb(51, 102, 204);
+}
 
 .main-screen-background {
   background-image: url(../img/1920x0/main-screen-background-sm.jpg);
@@ -314,7 +374,7 @@ h1 {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border: solid 0.8vw #fff;
+  border: solid 5px #fff;
   box-shadow: 0px 0px 10px -6px #000;
 }
 
@@ -406,8 +466,8 @@ h1 {
 ***
 * СТИЛІ ВІДОБРАЖЕННЯ ФОТО В ПОВНОЕКРАНОМУ РЕЖИМІ
 ***
-* 
-* 
+*
+*
 ***
 */
 
@@ -427,4 +487,21 @@ h1 {
 .image {
   width: 100%;
   height: 100%;
+}
+
+.footerQr {
+  height: auto;
+  width: 100%;
+  max-width: 300px;
+}
+
+.bordered {
+    border: 1px solid red;
+}
+
+.galery {
+    max-width: 1024px;
+    padding: 0 1em;
+    margin: auto;
+    position: relative;
 }
