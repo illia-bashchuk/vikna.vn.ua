@@ -2,13 +2,12 @@
 @section('title', 'Євровікна Жмеринка - Металопластикові вікна та двері, захисні ролети, гаражні ворота. VEKA. LUVIN.')
 
 @section('content')
+
 <div class="container ">
-    <div class="row justify-content-center">
-        <h2 class="sub-header">Чому нас обрали більше 3000 клієнтів?</h2>
+    <div class="row justify-content-center my-3">
+        <h2 class="sub-header blue-font ">Ми пропонуєм Вам:</h2>
     </div>
-    <div class="row justify-content-center">
-        <h3 class="sub-sub-header">Наші товари та послуги:</h3>
-    </div>
+
     <div class="row justify-content-center my-5">
         <div class="col-12 col-md-4 text-center">
             <img class="shadow lazyload" data-src="public/img/200x200/1.jpg" alt="Вікно металопластикове">
@@ -74,95 +73,28 @@
 
 <div class="container-fluid text-center my-5">
 
-        <div class="sub-header">
+        <div class="sub-header blue-font mb-3">
             Наші роботи
         </div>
-        <div class="sub-sub-sub-header  ">
-            Проекти, якими ми можемо пишатись
-        </div>
-        <div class="row  ">
-            <div class="col-12 col-md-6 my-auto">
-                <div class="image-title-for-sm d-block d-sm-none sub-sub-sub-header">
-                    Зимовий сад
-                </div>
-                <div class="image_box">
-                    <img class="img-fluid shadow image lazyload" data-src="public/img/460x350/4.jpg" alt="Вікно">
-                    <div class="overlay_image_box">
-                        <div class="overlay_image_title sub-sub-header ">
-                            Зимовий сад
-                        </div>
-                        <div class="overlay_image_descr">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-md-6 ">
-                <div class="row my-2">
-                    <div class="col-12 col-md-6">
-                        <div class="image-title-for-sm d-block d-sm-none sub-sub-sub-header">
-                            Двері
-                        </div>
-                        <div class="image_box">
-                            <img class="img-fluid shadow lazyload" data-src="public/img/220x165/5.jpg" alt="Вікно">
-                            <div class="overlay_image_box">
-                                <div class="overlay_image_title sub-sub-header">
-                                    Двері
-                                </div>
-                                <div class="overlay_image_descr">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="image-title-for-sm d-block d-sm-none sub-sub-sub-header">
-                            Вхідні двері
-                        </div>
-                        <div class="image_box">
-                            <img class="img-fluid shadow lazyload" data-src="public/img/220x165/6.jpg" alt="Вікно">
-                            <div class="overlay_image_box">
-                                <div class="overlay_image_title sub-sub-header">
-                                    Вхідні двері
-                                </div>
-                                <div class="overlay_image_descr">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row my-2">
-                    <div class="col-12 col-md-6">
-                        <div class="image-title-for-sm d-block d-sm-none sub-sub-sub-header">
-                            Балкон
-                        </div>
-                        <div class="image_box">
-                            <img class="img-fluid shadow lazyload" data-src="public/img/220x165/7.jpg" alt="Вікно">
-                            <div class="overlay_image_box">
-                                <div class="overlay_image_title sub-sub-header">
-                                    Балкон
-                                </div>
-                                <div class="overlay_image_descr">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <div class="image-title-for-sm d-block d-sm-none sub-sub-sub-header">
-                            Гаражні ворота
-                        </div>
-                        <div class="image_box">
-                            <img class="img-fluid shadow lazyload" data-src="public/img/220x165/8.jpg" alt="Вікно">
-                            <div class="overlay_image_box">
-                                <div class="overlay_image_title sub-sub-header">
-                                    Гаражні ворота
-                                </div>
-                                <div class="overlay_image_descr">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+        <div class="galery">
+            <div class="fotorama"
+            data-nav="thumbs"
+            data-allowfullscreen="true"
+            data-width="100%"
+            data-ratio="1.3333333333"
+
+            >
+                <img class="lazyload" src="public/img/800x600/4.jpg" alt="Вікно">
+                <img class="lazyload" src="public/img/800x600/5.jpg" alt="Вікно">
+                <img class="lazyload" src="public/img/800x600/6.jpg" alt="Вікно">
+                <img class="lazyload" src="public/img/800x600/7.jpg" alt="Вікно">
+                <img class="lazyload" src="public/img/800x600/8.jpg" alt="Вікно">
+
             </div>
         </div>
+
+
 
 </div>
 @endsection
