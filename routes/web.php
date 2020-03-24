@@ -10,91 +10,66 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use App\Photo;
 /*
 |--------------------------------------------------------------------------
-| Українська локалізація
+| Публічна частина
 |--------------------------------------------------------------------------
 |
 |
 */
 
-Route::get('/', 'IndexController@index');
+Route::redirect('/', '/uk/index');
 
+// Route::get('/', 'IndexController@index')->name('index');
 
+// Route::get('{locale}/index', 'IndexController@index');
 
-Route::get('windows', function () {
-    App::setLocale('uk');
-    return view('windows', ['local' => '']);
+Route::get('{locale}/index', function ($locale) {
+    App::setLocale($locale);
+    $photos = Photo::where('page', 'our-works')->get();
+        return view('index', [
+            'photos' => $photos,
+        ]);
 });
 
-Route::get('doors', function () {
-    App::setLocale('uk');
-    return view('doors', ['local' => '']);
+Route::get('{locale}/windows', function ($locale) {
+    App::setLocale($locale);
+    return view('windows');
 });
 
-Route::get('catalog', function () {
-    App::setLocale('uk');
-    return view('catalog', ['local' => '']);
+Route::get('{locale}/doors', function ($locale) {
+    App::setLocale($locale);
+    return view('doors');
 });
 
-Route::get('profile', function () {
-    App::setLocale('uk');
-    return view('profile', ['local' => '']);
+Route::get('{locale}/catalog', function ($locale) {
+    App::setLocale($locale);
+    return view('catalog');
 });
 
-Route::get('furniture', function () {
-    App::setLocale('uk');
-    return view('furniture', ['local' => '']);
+Route::get('{locale}/profile', function ($locale) {
+    App::setLocale($locale);
+    return view('profile');
 });
 
-Route::get('sale', function () {
-    App::setLocale('uk');
-    return view('sale', ['local' => '']);
+Route::get('{locale}/furniture', function ($locale) {
+    App::setLocale($locale);
+    return view('furniture');
+});
+
+Route::get('{locale}/sale', function ($locale) {
+    App::setLocale($locale);
+    return view('sale');
 });
 
 /*
 |--------------------------------------------------------------------------
-| Російська локалізація
+| Авторизація
 |--------------------------------------------------------------------------
 |
 |
 */
-
-Route::get('/ru', function () {
-    App::setLocale('ru');
-    return view('index', ['local' => 'ru/']);
-});
-
-Route::get('/ru/windows', function () {
-    App::setLocale('ru');
-    return view('windows', ['local' => 'ru/']);
-});
-
-Route::get('/ru/doors', function () {
-    App::setLocale('ru');
-    return view('doors', ['local' => 'ru/']);
-});
-
-Route::get('/ru/catalog', function () {
-    App::setLocale('ru');
-    return view('catalog', ['local' => 'ru/']);
-});
-
-Route::get('/ru/profile', function () {
-    App::setLocale('ru');
-    return view('profile', ['local' => 'ru/']);
-});
-
-Route::get('/ru/furniture', function () {
-    App::setLocale('ru');
-    return view('furniture', ['local' => 'ru/']);
-});
-
-Route::get('/ru/sale', function () {
-    App::setLocale('ru');
-    return view('sale', ['local' => 'ru/']);
-});
 
 Auth::routes(
     [
@@ -104,8 +79,20 @@ Auth::routes(
     ]
 );
 
-Route::get('/home', 'HomeController@index')->name('home');
+/*
+|--------------------------------------------------------------------------
+| Адмінстративна частина
+|--------------------------------------------------------------------------
+|
+|
+*/
 
-Route::get('/admin', 'AdminController@admin')
-    ->middleware('is_admin')
-    ->name('admin');
+Route::middleware('auth', 'is_admin')->group(function () {
+    Route::get('/admin', 'Admined\AdminController@admin')
+        ->name('admin');
+
+    Route::resource('/admin/our-works', 'Admined\OurWorksController');
+});
+
+
+
