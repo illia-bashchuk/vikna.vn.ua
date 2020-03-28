@@ -20,24 +20,35 @@
         @yield('title')
     </title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="description"
-        content="Продаж та встановлення пластикових вікон та дверей, захисних ролетів та гаражних воріт. Працюємо по м.Жмеринка та Вінницькій області. Євровікна. +38067-276-66-87 +38067-276-46-59" />
-    <meta name="keywords" content="металопластикові вікна Жмеринка, металопластикові двері, пластикові вікна,
-        двері вхідні, вхідні двері, пластикові двері, пластикові вікна ціна,
-        металопластикові вікна ціна,вікна металопластикові,гаражні ворота,
-        вікна Жмеринка, міжкімнатні двері, фасадні системи, вікна VEKA, захисні ролети" />
+    <meta name="description" content="@lang('messages.description')" />
+    <meta name="keywords" content="@lang('messages.keywords')" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="{{ url('public/css/normalize.css') }}" rel="stylesheet" type="text/css" />
+
+    {{-- <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script> --}}
+    <script type='text/javascript' src='{{ url('public/unitegallery/js/jquery-11.0.min.js') }}'></script>
+    <script type='text/javascript' src='{{ url('public/unitegallery/js/unitegallery.min.js') }}'></script>
+    <script type='text/javascript' src='{{ url('public/unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js') }}'>
+    </script>
+
+    <link rel='stylesheet' href='{{ url('public/unitegallery/css/unite-gallery.css') }}' type='text/css' />
+    <link rel='stylesheet' href='{{ url('public/unitegallery/themes/default/ug-theme-default.css') }}'
+        type='text/css' />
+
+
     <link
         href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic%7CPT+Sans+Narrow:400,700%7CRusso+One&amp;subset=latin,cyrillic-ext,latin-ext,cyrillic'
         rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{ url('public/css/style.css') }}">
-    <link href="{{ url('public/favicon.ico') }} " rel="shortcut icon" type="image/x-icon" />
-    <link rel="alternate" hreflang="ru-UA" href="ru/" />
-    <link rel="alternate" hreflang="uk-UA" href="/" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ url('public/css/normalize.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url('public/css/style.css') }}" />
+
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url('public/favicon.ico') }}" />
+    <link rel="alternate" hreflang="ru-UA" href="ru/index" />
+    <link rel="alternate" hreflang="uk-UA" href="uk/index" />
 </head>
 
 <body>
@@ -49,8 +60,8 @@
 
     @include('components.footer')
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> --}}
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
@@ -59,18 +70,51 @@
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"
         integrity="sha256-Kg2zTcFO9LXOc7IwcBx1YeUBJmekycsnTsq2RuFHSZU=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
     <script src="{{ url('public/js/script.js') }}"></script>
 
     <script type="text/javascript">
-        $(function () {
-        $('form[action="./php/handler.php"]').submit(function (event) {
+        jQuery(document).ready(function(){
+            jQuery("#gallery").unitegallery({
+                tile_width:180,
+                tile_height:300,
+                grid_num_rows:300,
+                grid_space_between_cols: 5,				//space between columns
+                grid_space_between_rows: 5,				//space between rows
+                grid_space_between_mobile: 5,
+
+            });
+        });
+    </script>
+
+    <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('focusin', function(event) {
+                    form.classList.add('was-validated');
+                }, false);
+                form.addEventListener('focusout', function(event) {
+                    $(this).closest('body').find('form').removeClass('was-validated');
+                    console.log('work');
+                }, false);
+            });
+        }, false);
+    })();
+
+    $(function () {
+        $('form[action="{{ url('/mail') }}"]').submit(function (event) {
             event.preventDefault();
             var formData = new FormData($(this)[0]);
             var this_block = $(this).closest('body');
             $.ajax({
                 type: "POST",
-                url: "./php/handler.php",
+                url: "{{ url('/mail') }}",
                 data: formData,
                 async: true,
                 cache: false,
@@ -80,6 +124,7 @@
                 this_block.find('.popup_form').hide();
                 this_block.find('.form-reset')[0].reset();
                 this_block.find('.popup_thanks').show();
+                this_block.find('form').removeClass('was-validated');
             }).fail(function (jqXHR, status, errorThrown) {
                 this_block.find('.popup_form').hide();
                 this_block.find('.form-reset')[0].reset();
@@ -89,7 +134,6 @@
         });
     });
     </script>
-
 </body>
 
 </html>

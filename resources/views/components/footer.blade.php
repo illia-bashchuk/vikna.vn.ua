@@ -9,37 +9,39 @@
         </div>
         <div class="col-12 col-md-5 col-lg-4 col-xl-4  form_wrapper p-3 my-5">
             <div class="sub-sub-header text-center">
-                Залиште заявку на замір!
+                @lang('messages.form_header')
             </div>
             <div class="list-of-properties text-center">
-                Виклик замірщика - безкоштовно!
+                @lang('messages.form_header2')
             </div>
-            <form action="./php/handler.php" enctype="multipart/form-data" method="post"
-                class="was-validated form-reset">
+            <form action="{{ url('/mail') }}" enctype="multipart/form-data" method="post"
+                class="needs-validation form-reset" >
+                @csrf
                 <div class="form-group col list-of-properties">
-                    <label for="formGroupExampleInput">Введіть ім'я</label>
+                    <label for="formGroupExampleInput">@lang('messages.form_name')</label>
                     <input name="name" type="text" required="required" class="form-control"
-                        id="formGroupExampleInput" maxlength="18" minlength="3">
+                        id="formGroupExampleInput" maxlength="18" minlength="3"
+                        title="Заповніть дане">
                     <div class="valid-feedback">
-                        Ім'я введено!
+                        @lang('messages.form_name_valid')
                     </div>
                     <div class="invalid-feedback">
-                        Ім'я не введено.
+                        @lang('messages.form_name_invalid')
                     </div>
                 </div>
                 <div class="form-group col list-of-properties">
                     <label for="formGroupExampleInput2">
-                        Введіть номер телефону<br>
-                        Наш менеджер Вам передзвонить
+                        @lang('messages.form_phone')<br>
+                        @lang('messages.form_phone2')
                     </label>
                     <input name="phone" type="tel" required="required" class="form-control"
                         id="formGroupExampleInput2" pattern="[\+]\d{2}\d{3}\d{7}" data-mask="+380000000000"
-                        maxlength="18" title="Не правильний формат вводу">
+                        maxlength="18" title="Формат вводу: +380672766687">
                     <div class="valid-feedback">
-                        Номер введено правильно!
+                        @lang('messages.form_phone_valid')
                     </div>
                     <div class="invalid-feedback">
-                        Формат вводу: +380672766687
+                        @lang('messages.form_phone_invalid')
                     </div>
                 </div>
                 <div class="form-group col">
@@ -49,7 +51,7 @@
                     </div>
                 </div>
                 <div class="list-of-properties col">
-                    Ми не передаємо Вашу персональну інформацію третім особам.
+                    @lang('messages.form_footer')
                 </div>
             </form>
         </div>
@@ -59,7 +61,7 @@
 <div class="container my-5">
     <div class="row text-center">
         <div class="col-12 col-md-4 logo_img">
-            <img class="img-fluid lazyload" data-src="{{ url('public/img/200x0/e1269f3c19f739f6a292c69fa48a5a69.png') }}"
+            <img class="img-fluid lazyload" data-src="{{ url('public/img/200x0/logo.png') }}"
                 alt="Євровікна">
         </div>
         <div class="col-12 col-md-4 address-and-ua">
@@ -74,8 +76,8 @@
         </div>
         <div class="col-12 col-md-4 phone-and-address">
             <div class="phone-1">
-                <a href="tel:(067) 276-66-87">+38067-276-66-87<br></a>
-                <a href="tel:(067) 276-46-59">+38067-276-46-59<br></a>
+                <a href="tel:+38(067) 276-66-87">+38067-276-66-87<br></a>
+                <a href="tel:+38(067) 276-46-59">+38067-276-46-59<br></a>
             </div>
         </div>
     </div>
@@ -106,3 +108,22 @@
         </div>
     </div>
 </div>
+
+<div class="popup_thanks container-fluid">
+    <div class="row">
+        <div class="col-11 col-md-5 popup_thanks_inner text-center">
+            <button type="button" class="close popup_form_close my-2" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <div class="sub-sub-header  m-3">
+                @lang('messages.form_thanks')
+            </div>
+            <div class="sub-sub-sub-header m-3">
+                @lang('messages.form_done')
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
