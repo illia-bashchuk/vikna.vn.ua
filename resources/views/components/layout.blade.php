@@ -24,8 +24,8 @@
     <meta name="keywords" content="@lang('messages.keywords')" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    {{-- <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script> --}}
-    <script type='text/javascript' src='{{ url('public/unitegallery/js/jquery-11.0.min.js') }}'></script>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    {{-- <script type='text/javascript' src='{{ url('public/unitegallery/js/jquery-11.0.min.js') }}'></script> --}}
     <script type='text/javascript' src='{{ url('public/unitegallery/js/unitegallery.min.js') }}'></script>
     <script type='text/javascript' src='{{ url('public/unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js') }}'>
     </script>
@@ -73,19 +73,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
     <script src="{{ url('public/js/script.js') }}"></script>
 
-    <script type="text/javascript">
-        jQuery(document).ready(function(){
-            jQuery("#gallery").unitegallery({
-                tile_width:180,
-                tile_height:300,
-                grid_num_rows:300,
-                grid_space_between_cols: 5,				//space between columns
-                grid_space_between_rows: 5,				//space between rows
-                grid_space_between_mobile: 5,
 
-            });
-        });
-    </script>
 
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
