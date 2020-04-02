@@ -1,15 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 use App\Photo;
 /*
 |--------------------------------------------------------------------------
@@ -95,8 +85,8 @@ Route::get('{locale}/windowsill', function ($locale) {
 
 Route::get('{locale}/anti-theft', function ($locale) {
     App::setLocale($locale);
-    $photos = Photo::where('page', 'anti-theft')->get();
-        return view('anti-theft', [
+    $photos = Photo::where('page', 'anti_theft')->get();
+        return view('anti_theft', [
             'photos' => $photos,
         ]);
 });
