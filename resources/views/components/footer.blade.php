@@ -81,6 +81,9 @@
             </div>
         </div>
     </div>
+    <div class="row  justify-content-center">
+        <div id="okna.ua-counter1" style="display: inline-block;"></div>
+    </div>
 </div>
 
 
