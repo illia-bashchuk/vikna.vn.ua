@@ -15,3 +15,6 @@ yarn-error.log
 
 .htaccess
 photo
+*.sql
+.php-version
+/logs
