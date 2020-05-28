@@ -24,8 +24,8 @@
     <meta name="keywords" content="@lang('messages.keywords')" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    {{-- <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script> --}}
-    <script type='text/javascript' src='{{ url('public/unitegallery/js/jquery-11.0.min.js') }}'></script>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    {{-- <script type='text/javascript' src='{{ url('public/unitegallery/js/jquery-11.0.min.js') }}'></script> --}}
     <script type='text/javascript' src='{{ url('public/unitegallery/js/unitegallery.min.js') }}'></script>
     <script type='text/javascript' src='{{ url('public/unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js') }}'>
     </script>
@@ -73,20 +73,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
     <script src="{{ url('public/js/script.js') }}"></script>
 
-    <script type="text/javascript">
-        jQuery(document).ready(function(){
-            jQuery("#gallery").unitegallery({
-                tile_width:180,
-                tile_height:300,
-                grid_num_rows:300,
-                grid_space_between_cols: 5,				//space between columns
-                grid_space_between_rows: 5,				//space between rows
-                grid_space_between_mobile: 5,
+    {{-- Okna.ua counter --}}
+    <script async charset="UTF-8" src="https://okna.ua/js/calc_button2/okna_1_v2.js"></script><noscript>
+    <div style="text-align:left;width:88px;height:31px;background:#003399;padding:0;margin:0;border:0;border-radius:0;display:inline-block;position:relative;opacity:1;outline:0;overflow:visible;text-shadow:none;text-transform:none;visibility:visible;z-index:auto;text-indent:0;"><a href="https://okna.ua/" title="Металлопластиковые окна, пластиковые окна, ПВХ" style="border:0;padding:0;position:absolute;color:#fff;font: bold italic 12px/12px Arial, Verdana, Helvetica, sans-serif;text-decoration:none;margin: 5px 0 0 3px;font-variant:normal;height:auto;width:auto;letter-spacing:normal;opacity:1;outline:0;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:0;z-index:auto;">OKNA.ua</a><a href="https://okna.ua/" title="Металлопластиковые окна, пластиковые окна, ПВХ" style="border:0;margin:0;padding:0;height:auto;width:auto;line-height:0;opacity:1;outline:0;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;word-spacing:0;z-index:auto;"><img src="https://okna.ua/img/okna_rank_v2.gif" title="OKNA.ua - Металлопластиковые окна, алюминиевые фасады, деревянные окна" alt="ОКНА.ua - оконные системы, каталог, прайсы, объявления" style="margin:0;padding:0;line-height:0;opacity:1;outline:0;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;word-spacing:0;z-index:auto;border:0;" width="88" height="31"/></a></div></noscript>
+    {{-- End of Okna.ua counter --}}
 
-            });
-        });
-    </script>
 
+    
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {

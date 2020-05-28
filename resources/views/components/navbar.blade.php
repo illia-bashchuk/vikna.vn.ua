@@ -1,6 +1,9 @@
-<nav class="nav my-navbar justify-content-center">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8 text-center">
+<nav class="nav navbar my-navbar navbar-expand-lg justify-content-center">
+    <button class="navbar-toggler btn my-nav-btn  btn-sm" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        {{-- <span class="navbar-toggler-icon">sdfgsdfgdfg</span> --}}Меню
+      </button>
+    <div class="row justify-content-center collapse navbar-collapse " id="navbar">
+        <div class="col-12 col-md-8 text-center " >
             <a href="{{ url(app()->getLocale().'/windows') }}" class="btn my-nav-btn my-text-shadow btn-lg m-3
     {{ url()->current() === url(app()->getLocale().'windows') ? 'my-active' : ''}}" role="button"
                 aria-pressed="true">@lang('messages.vikna')</a>

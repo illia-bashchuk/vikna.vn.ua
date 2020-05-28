@@ -13,4 +13,17 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery("#gallery").unitegallery({
+            tile_width:180,
+            tile_height:180,
+            grid_num_rows:300,
+            grid_space_between_cols: 5,				//space between columns
+            grid_space_between_rows: 5,				//space between rows
+            grid_space_between_mobile: 5,
+
+        });
+    });
+</script>
 @endsection
