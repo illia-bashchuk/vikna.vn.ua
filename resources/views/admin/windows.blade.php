@@ -33,7 +33,8 @@
                                 <td width="300px">{{ $photo->created_at }}</td>
                                 <td width="300px">
                                     <div class="row">
-                                        <form action="{{ route('edit-windows.destroy', ['id' => $photo->id]) }}" method="POST">
+                                        <form action="{{ route('edit-windows.destroy', ['id' => $photo->id]) }}" 
+                                            method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <input class="btn btn-danger m-1" type="submit" value="Видалити">

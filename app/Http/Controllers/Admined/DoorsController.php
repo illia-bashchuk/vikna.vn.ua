@@ -17,7 +17,9 @@ class DoorsController extends Controller
     public function index()
     {
         $photos = Photo::where('page', 'doors')->get();
-        return view('admin.doors', ['photos' => $photos]);
+        $add_form_url = route('edit-doors.store');
+        return view('admin.doors', ['photos' => $photos,
+            'add_form_url' => $add_form_url]);
     }
 
     /**
@@ -40,10 +42,13 @@ class DoorsController extends Controller
     {
         $request->validate([
             'photo' => 'image|file',
+            'photo_name' => 'string|nullable|max:200',
         ]);
         $path = $request->file('photo')->store('doors');
+        $photo_name = $request->input('photo_name');
         $photo = new Photo;
         $url = Storage::url($path);
+        $photo->photo_name = $photo_name;
         $photo->path = $path;
         $photo->url = $url;
         $photo->page = 'doors';
@@ -57,9 +62,13 @@ class DoorsController extends Controller
      * @param  \App\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function show(Photo $photo)
+    public function show(Photo $photo, $id)
     {
-        //
+        $photo = $photo->find($id);
+        return view('admin.components.show_photo', [
+            'photo' => $photo,
+            'id' => $id
+        ]);
     }
 
     /**
@@ -68,9 +77,14 @@ class DoorsController extends Controller
      * @param  \App\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function edit(Photo $photo)
+    public function edit(Photo $photo, $id)
     {
-        //
+        $photo = $photo->find($id);
+        $update_url = route('edit-doors.update', ['id' => $photo->id]);
+        return view('admin.components.edit_form', [
+            'photo' => $photo,
+            'update_url' => $update_url
+        ]);
     }
 
     /**
@@ -80,9 +94,32 @@ class DoorsController extends Controller
      * @param  \App\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Photo $photo)
+    public function update(Request $request, Photo $photo, $id)
     {
-        //
+        $request->validate([
+            'photo' => 'image|file|nullable',
+            'photo_name' => 'string|nullable|max:200',
+        ]);
+        if ($request->file('photo') == true) {
+            $path = Photo::where('id', $id)->value('path');
+            Storage::delete($path);
+            $path = $request->file('photo')->store('doors');
+            $photo_name = $request->input('photo_name');
+            $photo = Photo::find($id);
+            $url = Storage::url($path);
+            $photo->photo_name = $photo_name;
+            $photo->path = $path;
+            $photo->url = $url;
+            $photo->save();
+        } elseif ($request->input('photo_name') != false and $request->file('photo') == false) {
+            $photo_name = $request->input('photo_name');
+            $photo = Photo::find($id);
+            $photo->photo_name = $photo_name;
+            $photo->save();
+        }
+
+        return redirect()->route('edit-doors.show', ['id' => $id]);
+        
     }
 
     /**

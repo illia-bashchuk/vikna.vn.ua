@@ -9,7 +9,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('edit-windows.store') }}" enctype="multipart/form-data" method="POST">
+                <form action="{{ $add_form_url }}" enctype="multipart/form-data" method="POST">
                     @csrf
                     @method('POST')
                     <div class="form-group">
@@ -21,7 +21,6 @@
                         <label for="File1">Підтримуванні формати: jpeg, jpg, png</label>
                         <input type="file" name="photo" class="form-control-file" id="" required>
                     </div>
-
 
             </div>
             <div class="modal-footer">

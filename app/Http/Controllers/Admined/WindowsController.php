@@ -17,7 +17,9 @@ class WindowsController extends Controller
     public function index()
     {
         $photos = Photo::where('page', 'windows')->get();
-        return view('admin.windows', ['photos' => $photos]);
+        $add_form_url = route('edit-windows.store');
+        return view('admin.windows', ['photos' => $photos,
+            'add_form_url' => $add_form_url]);
     }
 
     /**
@@ -60,9 +62,13 @@ class WindowsController extends Controller
      * @param  \App\Photo  $photo
      * @return \Illuminate\Http\Response
      */
-    public function show(Photo $photo)
+    public function show(Photo $photo, $id)
     {
-        //
+        $photo = $photo->find($id);
+        return view('admin.components.show_photo', [
+            'photo' => $photo,
+            'id' => $id
+            ]);
     }
 
     /**
@@ -74,8 +80,11 @@ class WindowsController extends Controller
     public function edit(Photo $photo, $id)
     {
         $photo = $photo->find($id);
-        // $photo = $id;
-        return view('admin.components.edit_form', ['photo' => $photo]);
+        $update_url = route('edit-windows.update', ['id' => $photo->id]);
+        return view('admin.components.edit_form', [
+            'photo' => $photo,
+            'update_url' => $update_url
+        ]);
     }
 
     /**
@@ -91,7 +100,7 @@ class WindowsController extends Controller
             'photo' => 'image|file|nullable',
             'photo_name' => 'string|nullable|max:200',
         ]);
-        if($request->file('photo') != false) {
+        if($request->file('photo') == true) {
             $path = Photo::where('id', $id)->value('path');
             Storage::delete($path);
             $path = $request->file('photo')->store('windows');
@@ -108,8 +117,9 @@ class WindowsController extends Controller
             $photo->photo_name = $photo_name;
             $photo->save();
         }
-        return view('admin.windows');
-        // return redirect()->route('edit-windows.show');
+        
+        return redirect()->route('edit-windows.show', ['id' => $id]);
+        
     }
 
     /**
