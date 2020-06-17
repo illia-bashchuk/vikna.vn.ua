@@ -1,5 +1,4 @@
 @extends('admin.layouts.layout')
-{{-- @section('title', 'Металопластикові вікна') --}}
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -21,7 +20,7 @@
                                 <th scope="col"></th>
                             </tr>
                         </thead>
-                        
+
                         <tbody>
                             @yield('show_photos')
                         </tbody>
