@@ -18,8 +18,14 @@ class WindowsController extends Controller
     {
         $photos = Photo::where('page', 'windows')->get();
         $add_form_url = route('edit-windows.store');
-        return view('admin.windows', ['photos' => $photos,
-            'add_form_url' => $add_form_url]);
+        // $edit_form_url = route('edit-windows.edit');
+        // $delete_form_url = route('edit-windows.destroy');
+        return view('admin.windows', [
+            'photos' => $photos,
+            'add_form_url' => $add_form_url,
+            // 'edit_form_url' => $edit_form_url,
+            // 'delete_url' => $delete_form_url,
+            ]);
     }
 
     /**
@@ -119,7 +125,6 @@ class WindowsController extends Controller
         }
         
         return redirect()->route('edit-windows.show', ['id' => $id]);
-        
     }
 
     /**

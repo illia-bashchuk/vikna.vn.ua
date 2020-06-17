@@ -17,11 +17,9 @@
                         <input type="text" name="photo_name" class="form-control" id="" required>
                     </div>
                     <div class="form-group">
-
                         <label for="File1">Підтримуванні формати: jpeg, jpg, png</label>
                         <input type="file" name="photo" class="form-control-file" id="" required>
                     </div>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Скасувати</button>
