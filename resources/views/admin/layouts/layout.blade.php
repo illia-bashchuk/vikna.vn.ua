@@ -2,7 +2,10 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="uk"> <!--<![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="uk">
+<!--<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,6 +24,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
 </head>
+
 <body>
     @include('admin.components.sidebar')
 
@@ -31,13 +35,27 @@
 
 
         <div class="breadcrumbs">
-            <div class="col-sm-4">
+            @if (Route::currentRouteName() ==  'edit.show')
+            <div class="col-sm-2">
+                <div class="page-header float-left">
+                    <div class="page-title">
+                        <a href="@yield('previous_url')">
+                                <h1><i class="menu-icon fa fa-undo"></i>
+                                    Повернутись</h1>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @else
+            <div class="col-sm-2">
                 <div class="page-header float-left">
                     <div class="page-title">
                         <h1>@yield('title')</h1>
                     </div>
                 </div>
             </div>
+            @endif
+
         </div>
 
         @yield('content')
@@ -53,4 +71,5 @@
 
 
 </body>
+
 </html>

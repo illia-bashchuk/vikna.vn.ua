@@ -160,21 +160,7 @@ Route::middleware('auth', 'is_admin')->group(function () {
     Route::get('/admin', 'Admined\AdminController@admin')
         ->name('admin');
 
-    Route::resource('/admin/edit-our-works', 'Admined\OurWorksController');
-    Route::resource('/admin/edit-windows', 'Admined\WindowsController');
-    Route::resource('/admin/edit-doors', 'Admined\DoorsController');
-    Route::resource('/admin/edit-catalog', 'Admined\CatalogController');
-    Route::resource('/admin/edit-profile', 'Admined\ProfileController');
-    Route::resource('/admin/edit-furniture', 'Admined\FurnitureController');
-    Route::resource('/admin/edit-sale', 'Admined\SaleController');
-    Route::resource('/admin/edit-dstu', 'Admined\DstuController');
-    Route::resource('/admin/edit-windowsill', 'Admined\WindowsillController');
-    Route::resource('/admin/edit-anti_theft', 'Admined\Anti_theftController');
-    Route::resource('/admin/edit-aluminium', 'Admined\AluminiumController');
-    Route::resource('/admin/edit-roller', 'Admined\RollerController');
-    Route::resource('/admin/edit-gates', 'Admined\GatesController');
-    Route::resource('/admin/edit-warranty', 'Admined\WarrantyController');
-
+    Route::resource('/admin/edit', 'PhotoController');
 });
 
 

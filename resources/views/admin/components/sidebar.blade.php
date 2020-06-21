@@ -17,47 +17,47 @@
                         <a href="{{ route('admin') }}"> <i class="menu-icon fa fa-dashboard"></i>Головна </a>
                     </li>
                     <h3 class="menu-title">Редагувати сторінки</h3><!-- /.menu-title -->
-                    <li class="{{ Route::currentRouteName() ==  'edit-our-works.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-our-works.index') }}" > <i class="menu-icon fa fa-picture-o"></i>Наші роботи</a>
+                    <li class="{{ url()->full() ==  url("/admin/edit?page=ourworks") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=ourworks") }}" > <i class="menu-icon fa fa-picture-o"></i>Наші роботи</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-windows.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-windows.index') }}" > <i class="menu-icon fa fa-windows"></i>Вікна металопластикові</a>
+                    <li class="{{url()->full() ==  url("/admin/edit?page=windows") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=windows") }}" > <i class="menu-icon fa fa-windows"></i>Вікна металопластикові</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-doors.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-doors.index') }}" > <i class="menu-icon fa fa-square"></i>Двері металопластикові</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=doors") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=doors") }}" > <i class="menu-icon fa fa-square"></i>Двері металопластикові</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-catalog.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-catalog.index') }}" > <i class="menu-icon fa fa-folder-o"></i>Каталог</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=catalog") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=catalog") }}" > <i class="menu-icon fa fa-folder-o"></i>Каталог</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-profile.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-profile.index') }}" > <i class="menu-icon fa fa-columns"></i>Профіль</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=profile") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=profile") }}" > <i class="menu-icon fa fa-columns"></i>Профіль</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-furniture.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-furniture.index') }}" > <i class="menu-icon fa fa-cogs"></i>Фурнітура</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=furniture") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=furniture") }}" > <i class="menu-icon fa fa-cogs"></i>Фурнітура</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-sale.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-sale.index') }}" > <i class="menu-icon fa fa-credit-card"></i>Розпродаж</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=sale") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=sale") }}" > <i class="menu-icon fa fa-credit-card"></i>Розпродаж</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-dstu.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-dstu.index') }}" > <i class="menu-icon fa fa-info"></i>Монтаж згідно ДСТУ</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=dstu") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=dstu") }}" > <i class="menu-icon fa fa-info"></i>Монтаж згідно ДСТУ</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-windowsill.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-windowsill.index') }}" > <i class="menu-icon fa fa-window-minimize"></i>Підвіконники та відливи</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=windowsill") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=windowsill") }}" > <i class="menu-icon fa fa-window-minimize"></i>Підвіконники та відливи</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-anti_theft.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-anti_theft.index') }}" > <i class="menu-icon fa fa-lock"></i>Протизламні вікна</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=antitheft") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=antitheft") }}" > <i class="menu-icon fa fa-lock"></i>Протизламні вікна</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-aluminium.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-aluminium.index') }}" > <i class="menu-icon fa ">Ag</i>Двері алюмінієві</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=aluminium") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=aluminium") }}" > <i class="menu-icon fa ">Ag</i>Двері алюмінієві</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-roller.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-roller.index') }}" > <i class="menu-icon fa fa-align-justify"></i>Захисні ролети</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=roller") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=roller") }}" > <i class="menu-icon fa fa-align-justify"></i>Захисні ролети</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-gates.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-gates.index') }}" > <i class="menu-icon fa fa-car"></i>Гаражні ворота</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=gates") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=gates") }}" > <i class="menu-icon fa fa-car"></i>Гаражні ворота</a>
                     </li>
-                    <li class="{{ Route::currentRouteName() ==  'edit-warranty.index' ? 'active' : ''}}">
-                        <a href="{{ route('edit-warranty.index') }}" > <i class="menu-icon fa fa-life-ring"></i>Гарантія та ремонт</a>
+                    <li class="{{url()->full() == url("/admin/edit?page=warranty") ? 'active' : ''}}">
+                        <a href="{{ url("/admin/edit?page=warranty") }}" > <i class="menu-icon fa fa-life-ring"></i>Гарантія та ремонт</a>
                     </li>
 
 

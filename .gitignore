@@ -18,3 +18,4 @@ photo
 *.sql
 .php-version
 /logs
+_ide_helper.php

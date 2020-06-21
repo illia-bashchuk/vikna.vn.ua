@@ -1,14 +1,11 @@
 @extends('admin.layouts.layout')
 @section('title', 'Фото')
-
+@section('previous_url', url("/admin/edit?page={$photo->page}") )
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
-
             <div class="card">
-                
-
                 <div class="card-body">
                     <table class="table">
                         <thead>
@@ -21,7 +18,6 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
                             <tr>
                                 <th scope="row"></th>
                                 <td width="200px"><img src="{{ asset($photo->url) }}" alt="" height="100px"> </td>
@@ -29,12 +25,12 @@
                                 <td width="300px">{{ $photo->created_at }}</td>
                                 <td width="300px">
                                     <div class="row">
-                                        <form action="{{ route('edit-windows.destroy', ['id' => $photo->id]) }}" method="POST">
+                                        <form action="{{ route('edit.destroy', ['id' => $photo->id]) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <input class="btn btn-danger m-1" type="submit" value="Видалити">
                                         </form>
-                                        <a href="{{ route('edit-windows.edit', ['id' => $photo->id]) }}">
+                                        <a href="{{ route('edit.edit', ['id' => $photo->id]) }}">
                                             <button type="button" class="btn btn-primary m-1" data-toggle="modal"
                                                 data-target="#edit_form_modal">
                                                 Редагувати
@@ -48,14 +44,10 @@
                     <div class="row justify-content-center">
                         <img src="{{ asset($photo->url) }}" alt="">
                     </div>
-                    
                 </div>
-            </div>
             </div>
         </div>
     </div>
 </div>
-
+</div>
 @endsection
-
-
