@@ -35,19 +35,19 @@
 
 
         <div class="breadcrumbs">
-            @if (Route::currentRouteName() ==  'edit.show')
-            <div class="col-sm-2">
+            @if (Route::currentRouteName() == 'edit.show')
+            <div class="col-sm-3">
                 <div class="page-header float-left">
                     <div class="page-title">
                         <a href="@yield('previous_url')">
-                                <h1><i class="menu-icon fa fa-undo"></i>
-                                    Повернутись</h1>
+                            <h1><i class="menu-icon fa fa-undo"></i>
+                                Повернутись</h1>
                         </a>
                     </div>
                 </div>
             </div>
             @else
-            <div class="col-sm-2">
+            <div class="col-sm-3">
                 <div class="page-header float-left">
                     <div class="page-title">
                         <h1>@yield('title')</h1>

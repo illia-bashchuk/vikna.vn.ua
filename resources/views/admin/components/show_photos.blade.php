@@ -38,7 +38,7 @@
                                             @method('DELETE')
                                             <input class="btn btn-danger m-1" type="submit" value="Видалити">
                                         </form>
-                                        <a href="{{ route('edit.edit', ['id' => $photo->id]) }}">
+                                        <a href="{{ url("admin/edit/{$photo->id}/edit?page={$photo->page}") }}">
                                             <button type="button" class="btn btn-primary m-1" data-toggle="modal"
                                                 data-target="#edit_form_modal">
                                                 Редагувати

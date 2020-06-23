@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Photo;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PhotoController extends Controller
 {
@@ -43,6 +44,7 @@ class PhotoController extends Controller
             'photos' => $photos,
             'title' => $title_list[$page],
             'add_form_url' => $add_form_url,
+
         ]);
     }
 
@@ -71,10 +73,27 @@ class PhotoController extends Controller
         ]);
         $page = $request->get('page');
         $path = $request->file('photo')->store($page);
+        // Image::make($request->file('photo'))->resize(300, 200)->save('foo.jpg')
+        // $img = Image::make($request->file('photo'))->resize(300, 200);
+        if (!file_exists(public_path("thumbnail/{$page}"))) {
+            mkdir(public_path("thumbnail/{$page}"), 0755);
+        }
+
+
+        Image::make($request->file('photo'))->resize(null, 300, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save(public_path("thumbnail/{$path}"), 90);
+
+        // $pathsmall = $img->store("small/{$page}");
+        // $pathsmall = $img->save("public/photo/{$page}");
+
         $photo_name = $request->input('photo_name');
         $photo = new Photo;
         $url = Storage::url($path);
+        // Storage::putFile('public/thumbnail', $img);
+
         $photo->photo_name = $photo_name;
+        // $photo->path = $path;
         $photo->path = $path;
         $photo->url = $url;
         $photo->page = $page;
@@ -88,13 +107,13 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Photo $photo, $id)
+    public function show(Request $request, Photo $photo, $id)
     {
         $photo = $photo->find($id);
         return view('admin.components.show_photo', [
             'photo' => $photo,
             'id' => $id,
-            ]);
+        ]);
     }
 
     /**
@@ -103,13 +122,13 @@ class PhotoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Photo $photo, $id)
+    public function edit(Request $request, Photo $photo, $id)
     {
         $photo = $photo->find($id);
         $update_url = route('edit.update', ['id' => $photo->id]);
         return view('admin.components.edit_form', [
             'photo' => $photo,
-            'update_url' => $update_url
+            'update_url' => $update_url,
         ]);
     }
 
@@ -127,11 +146,16 @@ class PhotoController extends Controller
             'photo_name' => 'string|nullable|max:200',
             'page' => 'string|max:20|alpha',
         ]);
-        $page = $request->get('page');
-        if($request->file('photo') == true) {
+
+        if ($request->file('photo') == true) {
             $path = Photo::where('id', $id)->value('path');
             Storage::delete($path);
+            unlink(public_path("thumbnail/{$path}"));
+            $page = $request->input('page');
             $path = $request->file('photo')->store($page);
+            Image::make($request->file('photo'))->resize(null, 300, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save(public_path("thumbnail/{$path}"), 90);
             $photo_name = $request->input('photo_name');
             $photo = Photo::find($id);
             $url = Storage::url($path);
@@ -139,7 +163,7 @@ class PhotoController extends Controller
             $photo->path = $path;
             $photo->url = $url;
             $photo->save();
-        } elseif($request->input('photo_name') != false and $request->file('photo') == false) {
+        } elseif ($request->input('photo_name') != false and $request->file('photo') == false) {
             $photo_name = $request->input('photo_name');
             $photo = Photo::find($id);
             $photo->photo_name = $photo_name;
@@ -163,6 +187,7 @@ class PhotoController extends Controller
         $page = $request->get('page');
         $path = Photo::where('id', $photo)->value('path');
         Storage::delete($path);
+        unlink(public_path("thumbnail/{$path}"));
         Photo::where('id', $photo)->delete();
         return redirect("/admin/edit?page={$page}");
     }
