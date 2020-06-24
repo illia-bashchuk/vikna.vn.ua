@@ -13,7 +13,7 @@ Route::redirect('/', '/uk/index');
 
 Route::get('{locale}/index', function ($locale) {
     App::setLocale($locale);
-    $photos = Photo::where('page', 'our-works')->get();
+    $photos = Photo::where('page', 'ourworks')->get();
         return view('index', [
             'photos' => $photos,
         ]);
@@ -85,7 +85,7 @@ Route::get('{locale}/windowsill', function ($locale) {
 
 Route::get('{locale}/anti-theft', function ($locale) {
     App::setLocale($locale);
-    $photos = Photo::where('page', 'anti_theft')->get();
+    $photos = Photo::where('page', 'antitheft')->get();
         return view('anti_theft', [
             'photos' => $photos,
         ]);

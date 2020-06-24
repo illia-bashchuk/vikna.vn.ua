@@ -27,7 +27,7 @@
                             @foreach ($photos as $photo)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td width="200px"><a href="{{ route('edit.show', ['id' => $photo->id]) }}"><img src="{{ asset($photo->url) }}" alt="" height="100px"></a> </td>
+                                <td width="300px"><a href="{{ route('edit.show', ['id' => $photo->id]) }}"><img src="{{ asset("thumbnail/$photo->path") }}" alt="" ></a> </td>
                                 <td width="300px">{{ $photo->photo_name }}</td>
                                 <td width="300px">{{ $photo->created_at }}</td>
                                 <td width="300px">

@@ -20,7 +20,7 @@
                         <tbody>
                             <tr>
                                 <th scope="row"></th>
-                                <td width="200px"><img src="{{ asset($photo->url) }}" alt="" height="100px"> </td>
+                                <td width="300px"><img src="{{ asset("thumbnail/$photo->path") }}" alt="" > </td>
                                 <td width="300px">{{ $photo->photo_name }}</td>
                                 <td width="300px">{{ $photo->created_at }}</td>
                                 <td width="300px">

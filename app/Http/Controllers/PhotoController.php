@@ -73,27 +73,16 @@ class PhotoController extends Controller
         ]);
         $page = $request->get('page');
         $path = $request->file('photo')->store($page);
-        // Image::make($request->file('photo'))->resize(300, 200)->save('foo.jpg')
-        // $img = Image::make($request->file('photo'))->resize(300, 200);
         if (!file_exists(public_path("thumbnail/{$page}"))) {
             mkdir(public_path("thumbnail/{$page}"), 0755);
         }
-
-
         Image::make($request->file('photo'))->resize(null, 300, function ($constraint) {
             $constraint->aspectRatio();
         })->save(public_path("thumbnail/{$path}"), 90);
-
-        // $pathsmall = $img->store("small/{$page}");
-        // $pathsmall = $img->save("public/photo/{$page}");
-
         $photo_name = $request->input('photo_name');
         $photo = new Photo;
         $url = Storage::url($path);
-        // Storage::putFile('public/thumbnail', $img);
-
         $photo->photo_name = $photo_name;
-        // $photo->path = $path;
         $photo->path = $path;
         $photo->url = $url;
         $photo->page = $page;
@@ -150,7 +139,9 @@ class PhotoController extends Controller
         if ($request->file('photo') == true) {
             $path = Photo::where('id', $id)->value('path');
             Storage::delete($path);
-            unlink(public_path("thumbnail/{$path}"));
+            if (!file_exists(public_path("thumbnail/{$path}"))) {
+                unlink(public_path("thumbnail/{$path}"));
+            }
             $page = $request->input('page');
             $path = $request->file('photo')->store($page);
             Image::make($request->file('photo'))->resize(null, 300, function ($constraint) {
@@ -187,7 +178,9 @@ class PhotoController extends Controller
         $page = $request->get('page');
         $path = Photo::where('id', $photo)->value('path');
         Storage::delete($path);
-        unlink(public_path("thumbnail/{$path}"));
+        if (!file_exists(public_path("thumbnail/{$path}"))) {
+            unlink(public_path("thumbnail/{$path}"));
+        }
         Photo::where('id', $photo)->delete();
         return redirect("/admin/edit?page={$page}");
     }
