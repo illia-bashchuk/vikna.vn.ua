@@ -18,7 +18,7 @@ class Photo extends Migration
             $table->charset = 'utf8';
             $table->collation = 'utf8_general_ci';
             $table->increments('id');
-            $table->string('photo_name', 200);
+            $table->string('photo_name', 200)->nullable();
             $table->string('path', 100);
             $table->string('url', 100);
             $table->string('page', 50);

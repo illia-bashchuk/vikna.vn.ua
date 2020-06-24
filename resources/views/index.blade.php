@@ -112,7 +112,7 @@
     <div class="galery">
         <div class="fotorama" data-nav="thumbs" data-allowfullscreen="true" data-width="100%" data-ratio="1.3333333333">
             @foreach ($photos as $photo)
-            <img class="lazyload" src="{{ url($photo->url) }}" alt="Вікно">
+            <a href="{{ url("photo/$photo->path") }}"><img class="lazyload" src="{{ url("thumbnail/$photo->path") }}" alt="{{ $photo->photo_name }}"></a>
             @endforeach
         </div>
     </div>

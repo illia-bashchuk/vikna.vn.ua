@@ -8,12 +8,12 @@
 
             <div class="card">
                <div class="modal-body">
-                <form action="{{ route('edit-windows.update', ['id' => $photo->id]) }}" enctype="multipart/form-data" method="POST">
+                <form action="{{ $update_url }}" enctype="multipart/form-data" method="POST">
                     @csrf
-                    @method('PUT/PATCH')
+                    @method('PUT')
                     <div class="form-group">
                         <label for="formGroupExampleInput">Назва фото</label>
-                        <input type="text" name="photo_name" class="form-control" id="" 
+                        <input type="text" name="photo_name" class="form-control" id=""
                         placeholder="" value="{{ $photo->photo_name }}">
                     </div>
                     <img src="{{ asset($photo->url) }}" alt="" height="100px">
@@ -22,17 +22,18 @@
                         <label for="File1">Підтримуванні формати: jpeg, jpg, png</label>
                         <input type="file" name="photo" class="form-control-file" id="" >
                     </div>
-
+                    <input type="hidden" name="page" value="{{ $photo->page }}" >
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Скасувати</button>
+                <a href="{{ url()->previous() }}">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Скасувати</button>
+                </a>
+
                 <input class="btn btn-primary" type="submit" value="Змінити">
                 </form>
             </div>
 
-               
-    
             </div>
         </div>
     </div>

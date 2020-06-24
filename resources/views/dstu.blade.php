@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div id="gallery" style="display:none;">
                 @foreach ($photos as $photo)
-                    <img alt="" data-image="{{ url($photo->url) }}"/>
+                <img alt="{{ $photo->photo_name }}" src="{{ url("thumbnail/{$photo->path}") }}" data-image="{{ url("photo/{$photo->path}") }}"/>
                 @endforeach
             </div>
         </div>

@@ -12,9 +12,12 @@ npm-debug.log
 yarn-error.log
 /public/img
 /public/.htaccess
+/public/thumbnail
 
 .htaccess
 photo
 *.sql
 .php-version
 /logs
+_ide_helper.php
+.phpstorm.meta.php
