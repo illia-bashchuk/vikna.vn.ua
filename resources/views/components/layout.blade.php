@@ -1,3 +1,13 @@
+@php
+if (app()->getLocale() === 'uk') {
+    $ukr_url = url()->current();
+    $rus_url = url('ru/'.request()->segment(2));
+} elseif (app()->getLocale() === 'ru') {
+    $ukr_url = url('uk/'.request()->segment(2));
+    $rus_url = url()->current();
+}
+@endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -47,8 +57,8 @@
 
 
     <link rel="shortcut icon" type="image/x-icon" href="{{ url('public/favicon.ico') }}" />
-    <link rel="alternate" hreflang="ru-UA" href="ru/index" />
-    <link rel="alternate" hreflang="uk-UA" href="uk/index" />
+    <link rel="alternate" hreflang="ru-UA" href="{{$rus_url}}" />
+    <link rel="alternate" hreflang="uk-UA" href="{{$ukr_url}}" />
 </head>
 
 <body>
@@ -75,11 +85,22 @@
 
     {{-- Okna.ua counter --}}
     <script async charset="UTF-8" src="https://okna.ua/js/calc_button2/okna_1_v2.js"></script><noscript>
-    <div style="text-align:left;width:88px;height:31px;background:#003399;padding:0;margin:0;border:0;border-radius:0;display:inline-block;position:relative;opacity:1;outline:0;overflow:visible;text-shadow:none;text-transform:none;visibility:visible;z-index:auto;text-indent:0;"><a href="https://okna.ua/" title="Металлопластиковые окна, пластиковые окна, ПВХ" style="border:0;padding:0;position:absolute;color:#fff;font: bold italic 12px/12px Arial, Verdana, Helvetica, sans-serif;text-decoration:none;margin: 5px 0 0 3px;font-variant:normal;height:auto;width:auto;letter-spacing:normal;opacity:1;outline:0;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:0;z-index:auto;">OKNA.ua</a><a href="https://okna.ua/" title="Металлопластиковые окна, пластиковые окна, ПВХ" style="border:0;margin:0;padding:0;height:auto;width:auto;line-height:0;opacity:1;outline:0;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;word-spacing:0;z-index:auto;"><img src="https://okna.ua/img/okna_rank_v2.gif" title="OKNA.ua - Металлопластиковые окна, алюминиевые фасады, деревянные окна" alt="ОКНА.ua - оконные системы, каталог, прайсы, объявления" style="margin:0;padding:0;line-height:0;opacity:1;outline:0;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;word-spacing:0;z-index:auto;border:0;" width="88" height="31"/></a></div></noscript>
+        <div
+            style="text-align:left;width:88px;height:31px;background:#003399;padding:0;margin:0;border:0;border-radius:0;display:inline-block;position:relative;opacity:1;outline:0;overflow:visible;text-shadow:none;text-transform:none;visibility:visible;z-index:auto;text-indent:0;">
+            <a href="https://okna.ua/" title="Металлопластиковые окна, пластиковые окна, ПВХ"
+                style="border:0;padding:0;position:absolute;color:#fff;font: bold italic 12px/12px Arial, Verdana, Helvetica, sans-serif;text-decoration:none;margin: 5px 0 0 3px;font-variant:normal;height:auto;width:auto;letter-spacing:normal;opacity:1;outline:0;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:0;z-index:auto;">OKNA.ua</a><a
+                href="https://okna.ua/" title="Металлопластиковые окна, пластиковые окна, ПВХ"
+                style="border:0;margin:0;padding:0;height:auto;width:auto;line-height:0;opacity:1;outline:0;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;word-spacing:0;z-index:auto;"><img
+                    src="https://okna.ua/img/okna_rank_v2.gif"
+                    title="OKNA.ua - Металлопластиковые окна, алюминиевые фасады, деревянные окна"
+                    alt="ОКНА.ua - оконные системы, каталог, прайсы, объявления"
+                    style="margin:0;padding:0;line-height:0;opacity:1;outline:0;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;word-spacing:0;z-index:auto;border:0;"
+                    width="88" height="31" /></a></div>
+    </noscript>
     {{-- End of Okna.ua counter --}}
 
 
-    
+
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
     (function() {
