@@ -172,11 +172,8 @@ class PhotoController extends Controller
      */
     public function destroy(Request $request, $photo)
     {
-        $request->validate([
-            'page' => 'string|max:20|alpha',
-        ]);
-        $page = $request->get('page');
         $path = Photo::where('id', $photo)->value('path');
+        $page = Photo::where('id', $photo)->value('page');
         Storage::delete($path);
         if (!file_exists(public_path("thumbnail/{$path}"))) {
             unlink(public_path("thumbnail/{$path}"));
