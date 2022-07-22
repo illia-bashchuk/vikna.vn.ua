@@ -8,7 +8,7 @@ use App\Photo;
 |
 |
 */
-
+Debugbar::disable();
 Route::redirect('/', '/uk/index');
 
 Route::get('{locale}/index', function ($locale) {
