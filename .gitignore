@@ -21,3 +21,6 @@ photo
 /logs
 _ide_helper.php
 .phpstorm.meta.php
+*.xlsx
+*.gz
+
