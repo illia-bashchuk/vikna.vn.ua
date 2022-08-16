@@ -1,11 +1,16 @@
 @extends('admin.layouts.layout')
-@section('title', 'Фото')
-@section('previous_url', url("/admin/edit?page={$photo->page}") )
+@section('title', $title)
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
+                <div class="card-header">
+                    <button type="button" class="btn btn-secondary mb-1" data-toggle="modal"
+                        data-target="#store_form_modal">
+                        Додати фото
+                    </button>
+                </div>
                 <div class="card-body">
                     <table class="table">
                         <thead>
@@ -17,17 +22,18 @@
                                 <th scope="col"></th>
                             </tr>
                         </thead>
+
                         <tbody>
+                            @foreach ($photos as $photo)
                             <tr>
-                                <th scope="row"></th>
-                                <td width="300px">
-                                    {{-- <img src="{{ asset("thumbnail/$photo->path") }}" alt="" >  --}}
-                                </td>
+                                <th scope="row">{{ $loop->iteration }}</th>
+                                <td width="300px"><a href="{{ route('edit.show', ['id' => $photo->id]) }}"><img src="{{ asset("thumbnail/$photo->path") }}" alt="" ></a> </td>
                                 <td width="300px">{{ $photo->photo_name }}</td>
                                 <td width="300px">{{ $photo->created_at }}</td>
                                 <td width="300px">
                                     <div class="row">
-                                        <form action="{{ route('edit.destroy', ['id' => $photo->id]) }}" method="POST">
+                                        <form action="{{ route('edit.destroy', ['id' => $photo->id]) }}"
+                                            method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <input class="btn btn-danger m-1" type="submit" value="Видалити">
@@ -41,15 +47,13 @@
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
-                    <div class="row justify-content-center">
-                        <img src="{{ asset("photo/$photo->path") }}" alt="">
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
+@include('admin.components.add_form')
 @endsection
